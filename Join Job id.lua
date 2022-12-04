@@ -18,8 +18,6 @@ JobIDGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 MainFrame.Name = "MainFrame"
 MainFrame.Parent = JobIDGui
 MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
-MainFrame.BackgroundColor3 = Color3.new(255,255,255)
-MainFrame.BorderColor3 = Color3.new(0, 0, 0)
 MainFrame.BorderSizePixel = 3
 MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
 MainFrame.Size = UDim2.new(0, 307, 0, 137)
@@ -40,19 +38,22 @@ Barrier.TextSize = 14
 Label.Name = "Label"
 Label.Parent = MainFrame
 Label.AnchorPoint = Vector2.new(0.5, 0)
-Label.BackgroundColor3 = Color3.new(1, 1, 1)
+Label.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Label.BorderSizePixel = 3
 Label.BackgroundTransparency = 1
 Label.Position = UDim2.new(0.5, 0, 0, 0)
 Label.Size = UDim2.new(0, 200, 0, 28)
 Label.Font = Enum.Font.Nunito
-Label.Text = "Roblox Join Job id"
-Label.TextColor3 = Color3.new(0, 0, 0)
+Label.Text = "Roblox Script Join Job ID"
+Label.TextColor3 = Color3.fromRGB(0, 0, 0)
 Label.TextSize = 28
 
 PasteJobID.Name = "PasteJobID"
 PasteJobID.Parent = MainFrame
 PasteJobID.AnchorPoint = Vector2.new(0.5, 0)
-PasteJobID.BackgroundColor3 = Color3.new(1, 1, 1)
+PasteJobID.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PasteJobID.BorderSizePixel = 3
+PasteJobID.BorderColor3 = Color3.fromRGB(0, 0, 0)
 PasteJobID.Position = UDim2.new(0.5, 0, 0.275999993, 0)
 PasteJobID.Size = UDim2.new(0, 283, 0, 27)
 PasteJobID.Font = Enum.Font.SourceSans
@@ -65,13 +66,16 @@ PasteJobID.TextSize = 20
 JoinGame.Name = "JoinGame"
 JoinGame.Parent = MainFrame
 JoinGame.AnchorPoint = Vector2.new(0.5, 0)
-JoinGame.BackgroundColor3 = Color3.new(65, 105, 225)
+JoinGame.BackgroundColor3 = Color3.fromRGB(121, 121, 121)
+JoinGame.BorderSizePixel = 3
+JoinGame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 JoinGame.Position = UDim2.new(0.5, 0, 0.73299998, 0)
 JoinGame.Size = UDim2.new(0, 229, 0, 26)
-JoinGame.Font = Enum.Font.SourceSans
-JoinGame.Text = "  Join Job id"
-JoinGame.TextColor3 = Color3.new(0, 0, 0)
+JoinGame.Font = Enum.Font.SourceSansBold
+JoinGame.Text = "  Join Game"
+JoinGame.TextColor3 = Color3.fromRGB(0, 0, 0)
 JoinGame.TextSize = 25
+
 JoinGame.MouseButton1Down:connect(function()
    if CoreGui.RobloxPromptGui:FindFirstChild("promptOverlay") then
        CoreGui.RobloxPromptGui.promptOverlay.Visible = false
@@ -80,9 +84,9 @@ TeleService:TeleportToPlaceInstance(game.PlaceId,PasteJobID.Text,Players.LocalPl
 if CoreGui.RobloxPromptGui.promptOverlay:WaitForChild("ErrorPrompt") then
        if CoreGui.RobloxPromptGui.promptOverlay.ErrorPrompt.MessageArea.ErrorFrame.ButtonArea:FindFirstChild("OkButton") then
            game:GetService("GuiService"):ClearError()
-           GuiService:SetCore("SendNotification", {Title = "Roblox Join Job id",Text = "Error, Invalid Job ID";})
+           GuiService:SetCore("SendNotification", {Title = "Roblox Script Join Job ID",Text = "Error, Invalid Job ID";})
        else
-           GuiService:SetCore("SendNotification", {Title = "Roblox Join Job id",Text = "Successful, Joining Server";})  
+           GuiService:SetCore("SendNotification", {Title = "Roblox Script Join Job ID",Text = "Successful, Joining Server";})  
        end
 end
 end)
@@ -90,29 +94,32 @@ end)
 CopyJobID.Name = "CopyJobID"
 CopyJobID.Parent = MainFrame
 CopyJobID.AnchorPoint = Vector2.new(0.5, 0)
-CopyJobID.BackgroundColor3 = Color3.new(65, 105, 225)
+CopyJobID.BackgroundColor3 = Color3.fromRGB(121, 121, 121)
+CopyJobID.BorderSizePixel = 3
+CopyJobID.BorderColor3 = Color3.fromRGB(0, 0, 0)
 CopyJobID.Position = UDim2.new(0.5, 0, 0.542999983, 0)
 CopyJobID.Size = UDim2.new(0, 229, 0, 26)
-CopyJobID.Font = Enum.Font.SourceSans
+CopyJobID.Font = Enum.Font.SourceSansBold
 CopyJobID.Text = "Copy Job ID  "
-CopyJobID.TextColor3 = Color3.new(0, 0, 0)
+CopyJobID.TextColor3 = Color3.fromRGB(0, 0, 0)
 CopyJobID.TextSize = 25
+
 CopyJobID.MouseButton1Down:connect(function()
-GuiService:SetCore("SendNotification", {Title = "Roblox Join Job id",Text = "Copied Job ID to Your Clipboard";})
+GuiService:SetCore("SendNotification", {Title = "Roblox Script Join Job ID",Text = "Copied Job ID to Your Clipboard";})
 setclipboard(game.JobId)
 end)
 
 Close.Name = "Close"
 Close.Parent = MainFrame
-Close.BackgroundColor3 = Color3.new(65, 105, 225)
+Close.BackgroundColor3 = Color3.new(255, 0, 0)
 Close.BackgroundTransparency = 1
 Close.Position = UDim2.new(0.917502344, 0, 0.0291970801, 0)
 Close.Size = UDim2.new(0, 25, 0, 13)
-Close.Font = Enum.Font.SourceSans
+Close.Font = Enum.Font.SourceSansBold
 Close.Text = "x"
 Close.TextColor3 = Color3.new(255, 0, 0)
 Close.TextSize = 30
 Close.MouseButton1Down:connect(function()
-GuiService:SetCore("SendNotification", {Title = "Roblox Join Job id",Text = "Closing Gui";})
+GuiService:SetCore("SendNotification", {Title = "Roblox Script Join Job ID",Text = "Closing Gui";})
 JobIDGui:Destroy()
 end)
